@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const Dog = mongoose.Schema({
+const Dog = new mongoose.Schema({
     name: String,
     age: Number,
     gender: String
