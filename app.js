@@ -1,13 +1,10 @@
 import Express from 'express';
 import Routes from './Routes';
 import Middleware from './Middleware';
-import DB from './Database/connect';
+import { database } from './Database';
 
 module.exports = class App {
     constructor() {
-
-        // Connect to the database
-        this.DB = DB();
 
         // Run ExpressJS
         this.express = Express();
@@ -18,14 +15,17 @@ module.exports = class App {
         return this;
     }
 
-    init() {
-        let self = this;
+    async init() {
+        console.log('[App] Initialization started');
 
         // Set a port to listen to
-        this.express.listen(3000, () => console.log('Listening on port 3000!'));
+        this.express.listen(3000, () => console.log('[App] Express is listening on port 3000'));
 
         // Run middleware
-        Middleware(this.express);
+        await Middleware(this.express);
+
+        // Connect to the database
+        this.DB = await database.connect().catch(e => console.log('[App] Connecting error:', e));
 
         // Initialize routes
         new Routes([], this.express);

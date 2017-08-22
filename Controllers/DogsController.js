@@ -1,4 +1,5 @@
 import Reader from '../Content/Reader';
+import DogModel from '../Database/Model/Dog/';
 
 async function getDogsContent(request) {
     return await Reader("dogs.html", {

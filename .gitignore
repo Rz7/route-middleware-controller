@@ -2,3 +2,4 @@ node_modules
 mongodb-settings.js
 .idea
 package-lock.json
+test

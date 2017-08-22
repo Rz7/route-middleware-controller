@@ -1,9 +1,15 @@
 import mongoose from 'mongoose';
 
-const Cat = new mongoose.Schema({
+// import { database } from '../../../Database/';
+import Cat from './class';
+
+const catSchema = mongoose.Schema({
     name: String,
     age: Number,
     gender: String
 });
 
-export default mongoose.Model('Cat', Cat);
+
+catSchema.loadClass(Cat);
+
+export default mongoose.model('Cat', catSchema);
