@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import Promise from 'bluebird';
 
-import settings from '../mongodb-settings';
+import settings from '../Config/mongodb-settings';
 
 class Database {
     constructor() {
