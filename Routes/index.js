@@ -21,8 +21,8 @@ export default class Routes {
 
     handler(controllerEvent) {
         return (req, res) => {
-            return Promise.resolve(controllerEvent(req)).then((content) => {
-                res.send(content);
+            return Promise.resolve(controllerEvent(req, res)).then((content) => {
+                content ? res.send(content) : null;
             });
         };
     }

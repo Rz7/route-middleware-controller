@@ -1,4 +1,4 @@
-import Reader from '../Content/Reader';
+// import Reader from '../Content/Reader';
 import CatModel from '../Database/Model/Cat/';
 
 async function getCatsContent(request) {

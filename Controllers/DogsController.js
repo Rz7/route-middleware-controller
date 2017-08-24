@@ -1,9 +1,9 @@
-import Reader from '../Content/Reader';
-import DogModel from '../Database/Model/Dog/';
+// import Reader from '../Content/Reader';
+// import DogModel from '../Database/Model/Dog/';
 
-async function getDogsContent(request) {
-    return await Reader("dogs.html", {
-        message: "Hello, my dogs!"
+async function getDogsContent(request, response) {
+    response.render('dogs', {
+        message: 'Hello, my dogs!'
     });
 }
 
